@@ -1,61 +1,43 @@
-Digital Signage Content Management System
+# Digital Signage Content Management System
 
-Setup Instructions
+## Setup Instructions
 
-1. Clone the Repository
+1. Clone the repository.
+2. For the React Dashboard:
+   - Navigate to `signage-dashboard` and run:
+     ```bash
+     npm install
+     npm start
+     ```
+   - The app will be hosted at `http://localhost:3000`.
 
-Clone the repository to your local machine using the following command:
+3. For the Electron Display App:
+   - Navigate to `signage-electron` and run:
+     ```bash
+     npm install
+     npm start
+     ```
+   - The Electron app will open and display content in fullscreen.
 
-git clone <repository-url>
+4. Start the WebSocket Server:
+   - Navigate to `websocket-server` and run:
+     ```bash
+     node index.js
+     ```
 
-2. Web Dashboard
+## Architecture Overview
+- React App (Dashboard) handles content creation and management.
+- Electron App (Display) displays the content in fullscreen.
+- WebSocket server enables real-time communication between the two.
 
-Navigate to the signage-dashboard directory:
+## WebSocket Implementation
+- React Dashboard sends content updates via WebSocket.
+- Electron Display app listens for content updates via WebSocket and updates the display.
 
-cd signage-dashboard
+## Known Limitations
+- Currently only supports basic text and image content.
 
-Install dependencies:
+## Future Improvements
+- Add support for more media types (video, audio).
+- Enhance UI/UX for a smoother experience.
 
-npm install
-
-Start the development server:
-
-npm start
-
-3. Electron App
-
-Navigate to the signage-electron directory:
-
-cd signage-electron
-
-Install dependencies:
-
-npm install
-
-Launch the Electron app:
-
-npm start
-
-4. Web Server
-
-Navigate to the websocket-server directory:
-
-cd websocket-server
-
-Install dependencies:
-
-npm install
-
-Launch the server:
-
-node server.js
-
-Architecture Overview
-
-WebSocket: Enables real-time updates between the dashboard and the Electron app.
-
-Fabric.js: Facilitates content creation and editing.
-
-WebSocket Implementation
-
-The WebSocket server listens for content changes and broadcasts updates to connected Electron apps. This ensures that all devices display the latest content seamlessly.
